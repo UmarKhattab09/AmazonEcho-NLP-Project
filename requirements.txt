@@ -1,0 +1,15 @@
+pandas
+Gradio
+datasets
+evaluate
+scikit-learn
+transformers
+torch
+torchvision
+transformers[torch]
+python-dotenv
+langchain
+langchain_community
+sentence-transformers
+pinecone
+# langchain-community-unstructured
