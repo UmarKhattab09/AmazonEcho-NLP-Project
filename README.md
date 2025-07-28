@@ -16,3 +16,9 @@
 ## Stuff
 - I am also using a pinecone api key that will take the dataset and use a huggingface model to embedded it and save it at a pinecone api. I will make something like when a new link is inserted and there is no database for it. It will create one.
 - Let's see how far I can take it.
+
+
+
+# AS OF NOW:
+- I've created a simple algorithm. I was using scrapy but it was not grabbing anything. I found out that I can not scrap everything because of protection. So the links that can be extracted are very rare. However I found some that can be extracted using BeautifulSoup.
+- Working on the app.py now

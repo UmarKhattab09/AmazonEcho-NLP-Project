@@ -13,3 +13,6 @@ langchain_community
 sentence-transformers
 pinecone
 # langchain-community-unstructured
+scrapy
+beautifulsoup4
+pinecone[grpc]
