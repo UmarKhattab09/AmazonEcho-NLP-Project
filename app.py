@@ -11,8 +11,7 @@ load_dotenv()
 from pinecone import Pinecone
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from pinecone.grpc import PineconeGRPC as Pinecone
-
-
+from llmmodelhandling import llmmodel
 
 def dfreviews(url):
     emb = Embedded(url)
@@ -20,8 +19,10 @@ def dfreviews(url):
     pineconedf = emb.namespace()
     return df
     
-def getans(question):
-    pass
+def getans(url,question):
+    ans = llmmodel(user_input=question,url=url)
+    answer = ans.feedback()
+    return answer
 
 
 ## REMINDER TO MYSELF TO CHANGE THE models to online models when pushing to huggingfacespace
@@ -45,10 +46,12 @@ def main():
 
         with gr.Row():
             with gr.Column():
+                gr.HTML("<p> So the problem is prompt engineering or the model im using is not the best. It's trained on 1b paramter I just downloaded it for saving time. I will fix it soon.</p>")
+                url = gr.Textbox(label="Give Link")  
                 question = gr.Textbox(label="Provide a question about the product")
                 anstextbox = gr.Textbox(label="answer")
                 ans = gr.Button("Load Answer")
-                ans.click(getans,inputs=[question],outputs=[anstextbox])
+                ans.click(getans,inputs=[url,question],outputs=[anstextbox])
                 
                 
 
