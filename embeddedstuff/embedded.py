@@ -86,7 +86,7 @@ class Embedded:
             print("Created DF")
             print("NOW CREATING VECTORIZING DATA")
             vectorized = self.vectorized()
-            print("Created Vectorized DATA")
+            print("Created Vectowerized DATA")
             print("PUSHING DATA")
             index.upsert(
                 vectors=vectorized,
@@ -104,8 +104,8 @@ class Embedded:
 
 
 
-url = "https://www.amazon.com/Charger-charging-Certified-lightning-AirPods/dp/B0B283QP2N/?_encoding=UTF8&pd_rd_w=xI3Mi&content-id=amzn1.sym.117cb3e1-fd12-46a0-bb16-15cd49babfdb%3Aamzn1.symc.abfa8731-fff2-4177-9d31-bf48857c2263&pf_rd_p=117cb3e1-fd12-46a0-bb16-15cd49babfdb&pf_rd_r=1A0Y3SCKF61QZME5WKSB&pd_rd_wg=ZWwxr&pd_rd_r=ae81b6c3-d9bd-471e-908b-d82eca3bdbf3&ref_=pd_hp_d_btf_ci_mcx_mr_ca_id_hp_d"
-test = Embedded(url)
+# url = "https://www.amazon.com/Charger-charging-Certified-lightning-AirPods/dp/B0B283QP2N/?_encoding=UTF8&pd_rd_w=xI3Mi&content-id=amzn1.sym.117cb3e1-fd12-46a0-bb16-15cd49babfdb%3Aamzn1.symc.abfa8731-fff2-4177-9d31-bf48857c2263&pf_rd_p=117cb3e1-fd12-46a0-bb16-15cd49babfdb&pf_rd_r=1A0Y3SCKF61QZME5WKSB&pd_rd_wg=ZWwxr&pd_rd_r=ae81b6c3-d9bd-471e-908b-d82eca3bdbf3&ref_=pd_hp_d_btf_ci_mcx_mr_ca_id_hp_d"
+# test = Embedded(url)
 
-test2 = test.namespace()
+# test2 = test.namespace()
     
