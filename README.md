@@ -22,3 +22,6 @@
 # AS OF NOW:
 - I've created a simple algorithm. I was using scrapy but it was not grabbing anything. I found out that I can not scrap everything because of protection. So the links that can be extracted are very rare. However I found some that can be extracted using BeautifulSoup.
 - Working on the app.py now
+
+## FinalUpdate
+- It's working now. I've used a different model. It's better now. Hopefully will work when deployed because the model is hugh. Took me time to download it. 
