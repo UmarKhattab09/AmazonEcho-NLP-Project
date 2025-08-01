@@ -75,15 +75,15 @@ class llmmodel:
         ]
         answer = pipe(messages)
 
-        return answer
+        return answer[0]['generated_text'][2]['content']
 
         
 
-url = "https://www.amazon.com/Amazon-Basics-Everyday-Plates-Disposable/dp/B0C2CY22B8/?_encoding=UTF8&pd_rd_w=APjaP&content-id=amzn1.sym.f2128ffe-3407-4a64-95b5-696504f68ca1&pf_rd_p=f2128ffe-3407-4a64-95b5-696504f68ca1&pf_rd_r=YXMEXN435CNCQZWD512A&pd_rd_wg=7Izqy&pd_rd_r=3fbb0d02-8f22-4b11-ac45-f11f9ef282d6&ref_=pd_hp_d_btf_crs_zg_bs_284507&th=1"
-userinput = "What do you think about the product"
-test = llmmodel(url=url,user_input=userinput)
+# url = "https://www.amazon.com/Amazon-Basics-Everyday-Plates-Disposable/dp/B0C2CY22B8/?_encoding=UTF8&pd_rd_w=APjaP&content-id=amzn1.sym.f2128ffe-3407-4a64-95b5-696504f68ca1&pf_rd_p=f2128ffe-3407-4a64-95b5-696504f68ca1&pf_rd_r=YXMEXN435CNCQZWD512A&pd_rd_wg=7Izqy&pd_rd_r=3fbb0d02-8f22-4b11-ac45-f11f9ef282d6&ref_=pd_hp_d_btf_crs_zg_bs_284507&th=1"
+# userinput = "What do you think about the product"
+# test = llmmodel(url=url,user_input=userinput)
 
-# feed= test.context()
-# print(feed)
-ans = test.feedback()
-print(ans)
+# # feed= test.context()
+# # print(feed)
+# ans = test.feedback()
+# print(ans)

@@ -34,8 +34,7 @@ def main():
             with gr.Column():
                 gr.HTML('<h1> Amazon Web Scraping.')
             with gr.Column():
-                gr.HTML("<p> The concept is taken from RUFUS AI of Amazon. It's basically taking link and give a brief description of the product")
-
+                gr.HTML("<p> The concept is taken from RUFUS AI of Amazon. It's basically taking link and give a brief description of the product. Most links may not work because I can not scrap them without permission and the dataset isn't large.")
         with gr.Row():
             with gr.Column():
                 dataframe = gr.Dataframe(headers=["Reviews"],datatype=["str"])
