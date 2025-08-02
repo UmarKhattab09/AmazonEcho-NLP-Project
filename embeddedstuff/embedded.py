@@ -30,7 +30,8 @@ class Embedded:
             return df
         
     def load_embmodel(self):
-        model_name = "E:\\models\\gte-small"
+        # model_name = "E:\\models\\gte-small"
+        model_name = "thenlper/gte-small"
         embedding_model = HuggingFaceEmbeddings(
             model_name=model_name,
             multi_process=False,

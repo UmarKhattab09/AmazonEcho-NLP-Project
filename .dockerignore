@@ -1,0 +1,6 @@
+venv/
+__pycache__/
+.git/
+*.pyc
+.ipynb_checkpoints/
+NLP_BASICS/

@@ -15,13 +15,15 @@ load_dotenv()
 
 class llmmodel:
     def __init__(self,user_input,url):
-        self.model_name="E:\\models\\Llama-3.2-3B-Instruct"
+        # self.model_name="E:\\models\\Llama-3.2-3B-Instruct"
+        self.model_name = "meta-llama/Llama-3.2-3B-Instruct"
         self.user_input = user_input
         self.url = url
 
     def llmmodel(self):
-        model = AutoModelForCausalLM.from_pretrained(self.model_name)
-        tokenizer = AutoTokenizer.from_pretrained(self.model_name)
+        auth_token = os.getenv("HFTOKEN")
+        model = AutoModelForCausalLM.from_pretrained(self.model_name,token=auth_token)
+        tokenizer = AutoTokenizer.from_pretrained(self.model_name,token=auth_token)
         pipe = pipeline(
             "text-generation",
             model=model,
