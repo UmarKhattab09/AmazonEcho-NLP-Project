@@ -16,3 +16,5 @@ pinecone
 scrapy
 beautifulsoup4
 pinecone[grpc]
+lightning
+fastapi

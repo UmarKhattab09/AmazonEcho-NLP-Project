@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Website Assistant</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Website AI Assistant</h1>
+
+    <section>
+      <h2>🔍 Extract DataFrame</h2>
+      <input type="text" id="data-url" placeholder="Enter website URL" />
+      <button onclick="extractData()">Extract Data</button>
+      <div id="table-container"></div>
+    </section>
+
+    <section>
+      <h2>💬 Ask a Question</h2>
+      <input type="text" id="ask-url" placeholder="Enter website URL" />
+      <textarea id="question" rows="4" placeholder="Ask your question here..."></textarea>
+      <button onclick="askQuestion()">Ask</button>
+      <div id="answer-box"></div>
+    </section>
+  </div>
+
+  <script>
+    const apiBase = "https://your-backend-url.onrender.com"; // Replace with your actual backend URL
+
+    async function extractData() {
+      const url = document.getElementById("data-url").value;
+      const res = await fetch(`${apiBase}/extract-data`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url })
+      });
+      const { columns, rows } = await res.json();
+      renderTable(columns, rows);
+    }
+
+    function renderTable(columns, rows) {
+      const container = document.getElementById("table-container");
+      if (!columns || !rows || rows.length === 0) {
+        container.innerHTML = "<p>No data found.</p>";
+        return;
+      }
+
+      let html = "<table><thead><tr>";
+      columns.forEach(col => html += `<th>${col}</th>`);
+      html += "</tr></thead><tbody>";
+
+      rows.forEach(row => {
+        html += "<tr>";
+        columns.forEach(col => html += `<td>${row[col]}</td>`);
+        html += "</tr>";
+      });
+
+      html += "</tbody></table>";
+      container.innerHTML = html;
+    }
+
+    async function askQuestion() {
+      const url = document.getElementById("ask-url").value;
+      const question = document.getElementById("question").value;
+      const res = await fetch(`${apiBase}/ask`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url, question })
+      });
+      const { answer } = await res.json();
+      document.getElementById("answer-box").innerText = answer || "No answer found.";
+    }
+  </script>
+</body>
+</html>
