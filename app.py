@@ -21,6 +21,10 @@ app.add_middleware(
     allow_headers=["*"],    # Allow all headers
 )
 
+@app.get("/ping")
+def ping():
+    return {"status": "Backend running"}
+
 @app.get("/")
 def root():
     return {"message":"Welcome to AI "}
