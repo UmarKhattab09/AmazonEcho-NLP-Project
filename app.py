@@ -9,8 +9,8 @@ app = FastAPI()
 client = Client("UmarKhattab09/AmazonNLPproject",verbose=False)
 origins = [
     "http://localhost:3000",
-    "https://amazon-echo-nlp-project.vercel.app",
-    "*"  # Only use "*" in development!
+    "https://amazon-echo-nlp-project.vercel.app"
+      # Only use "*" in development!
 ]
 
 app.add_middleware(
