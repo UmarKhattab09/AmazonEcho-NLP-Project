@@ -31,7 +31,7 @@
 
     async function extractData() {
       const url = document.getElementById("data-url").value;
-      const res = await fetch(`${apiBase}/extract-data`, {
+      const res = await fetch(`${apiBase}/review`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url })
@@ -64,7 +64,7 @@
     async function askQuestion() {
       const url = document.getElementById("ask-url").value;
       const question = document.getElementById("question").value;
-      const res = await fetch(`${apiBase}/ask`, {
+      const res = await fetch(`${apiBase}/ans`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url, question })
