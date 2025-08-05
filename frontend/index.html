@@ -24,10 +24,27 @@
       <button onclick="askQuestion()">Ask</button>
       <div id="answer-box"></div>
     </section>
+
+    <section>
+      <h2>💬Ping Backend</h2>
+      <!-- <input type="text" id="ask-url" placeholder="Enter website URL" />
+      <textarea id="question" rows="4" placeholder="Ask your question here..."></textarea> -->
+      <button onclick="getping()">Ping</button>
+      <div id="ping-box"></div>
+    </section>
   </div>
 
   <script>
     const apiBase = "https://amazonecho-nlp-project.onrender.com"; // Replace with your actual backend URL
+    // const apiBase = "http://127.0.0.1:8000"; // Replace with your actual backend URL
+
+    async function getping() {
+      const res = await fetch(`${apiBase}/ping`, {
+        method: "POST",
+      });
+      const data = await res.json();
+      document.getElementById("ping-box").innerText = data.ping;
+}
 
     async function extractData() {
       const url = document.getElementById("data-url").value;

@@ -22,9 +22,11 @@ app.add_middleware(
     allow_headers=["*"],    # Allow all headers
 )
 
-@app.get("/ping")
-def ping():
-    return {"status": "Backend running"}
+@app.post("/ping")
+async def ping(request:Request):
+    # data = await request.json()
+    ping = client.predict(api_name="/getping")
+    return {"ping":ping}
 
 @app.get("/")
 def root():
