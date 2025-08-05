@@ -2,6 +2,8 @@ from fastapi import FastAPI,Request
 from pydantic import BaseModel
 from gradio_client import Client
 from fastapi.middleware.cors import CORSMiddleware
+import pandas as pd
+import numpy as np
 
 app = FastAPI()
 client = Client("UmarKhattab09/AmazonNLPproject",verbose=False)
@@ -32,8 +34,16 @@ async def getdataframe(request: Request):
     url = data["url"]
     # question = data["question"]
     df = client.predict(url, api_name="/dfreviews")
-    return {"columns": df.columns.tolist(), "rows": df.head(10).to_dict(orient="records")}
+    # return {"columns": df.columns.tolist(), "rows": df.head(10).to_dict(orient="records")}
+    headers = df["headers"]
+    raw_data = df["data"]
 
+    # Convert rows to dicts using headers
+    structured_data = [dict(zip(headers, row)) for row in raw_data]
+    return {
+    "columns": headers,
+    "rows": structured_data
+}
 # class Answer(BaseModel):
 #     url:str
 #     question:str
