@@ -7,16 +7,17 @@ import numpy as np
 
 app = FastAPI()
 client = Client("UmarKhattab09/AmazonNLPproject",verbose=False)
-origins = [
-    "http://localhost:3000",
-    "https://amazon-echo-nlp-project.vercel.app"
-      # Only use "*" in development!
-]
+# origins = [
+#     # "http://localhost:3000",
+#     # "https://amazon-echo-nlp-project.vercel.app"
+#       # Only use "*" in development!
+# ]
+origins = ["*"]
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,  # Allows your frontend domain
-    allow_credentials=True,
+    allow_credentials=False,
     allow_methods=["*"],    # Allow all HTTP methods: GET, POST, etc.
     allow_headers=["*"],    # Allow all headers
 )
