@@ -1,5 +1,11 @@
 # AmazonEcho-NLP-Project
 
+### MOREUPDATES 
+- Gradioapp.py consist of Gradio UI
+- oldapp.py consisnt of FastAPI but it can not be used as a backend because it requires a lot of cpu power
+- im building a fast api wrapper that will use huggingface gradio client and just transport the data,hopefully it works
+
+
 ## What I have done 
 - In NLP BASICS, you will find the basics of NLP, Tokkenizaion,stemming,BOW,TFIDF etc...
 - Right now I am trying to create something similar to RUFUS AI that amazon uses, it won't be fast but just for learning stuff
